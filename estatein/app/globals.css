@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #141414;
+  --shadowactive: 0 0 0.75rem #f1aaf2;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-urbanist);
+
+  --color-purple-60: #703bf7;
+  --color-purple-65: #8254f8;
+  --color-purple-70: #946cf9;
+  --color-purple-75: #a685fa;
+  --color-purple-90: #dbcefd;
+  --color-purple-95: #ede7fe;
+  --color-purple-97: #f4f0fe;
+  --color-purple-99: #fbfaff;
+
+  --color-whiteShades-90: #e4e4e7;
+  --color-whiteShades-95: #f1f1f3;
+  --color-whiteShades-97: #f7f7f8;
+  --color-whiteShades-99: #fcfcfd;
+
+  --color-grey-08: #141414;
+  --color-grey-10: #1a1a1a;
+  --color-grey-15: #262626;
+  --color-grey-20: #333333;
+  --color-grey-30: #4d4d4d;
+  --color-grey-40: #666666;
+  --color-grey-50: #808080;
+  --color-grey-60: #999999;
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #141414;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+footer a{
+  font-size: 0.875rem;
+}
