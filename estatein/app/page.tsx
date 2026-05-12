@@ -61,13 +61,13 @@ export default function Home() {
                 {/* Картинка прижимается к правому краю (нет правого паддинга) */}
                 <div className="w-full lg:w-1/2 relative flex justify-center order-first lg:order-last h-full px-4 lg:px-0">
                   {/* lg:rounded-r-none и lg:border-r-0 убирают рамки справа на ПК, чтобы слить картинку с краем */}
-                  <div className="w-full rounded-xl lg:rounded-l-2xl lg:rounded-r-none overflow-hidden border border-grey-15 lg:border-r-0">
+                  <div className="w-full rounded-xl  overflow-hidden ">
                     <Image 
                       src="/img/house.png" 
                       alt="House" 
                       width={920} 
                       height={814} 
-                      className="w-[22.375rem] lg:w-[57.5rem] h-auto object-cover" 
+                      className="w-[22.375rem] lg:w-[57.5rem] h-auto object-cover border border-grey-15 rounded-xl" 
                     />
                   </div>
                   
