@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
+// import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const urbanist = Urbanist({
-  variable: "--font-urbanist",
-  subsets: ["latin"],
-});
+// const urbanist = Urbanist({
+//   variable: "--font-urbanist",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "Estatein",
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${urbanist.variable} h-full antialiased`}
+      className={`h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         <Header/>
