@@ -35,11 +35,11 @@
   --color-grey-60: #999999;
 }
 
-@layer base {
+/* @layer base {
   body {
     @apply font-sans;
   }
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {

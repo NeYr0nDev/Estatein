@@ -131,7 +131,7 @@ export default function Home() {
             </main>
 
             {/* КОНТЕЙНЕР ДЛЯ СЛАЙДЕРОВ (Здесь возвращаем паддинги по бокам!) */}
-            <div id="testimonials" className="w-full flex flex-col gap-16 xl:gap-[120px] px-4 md:px-10 lg:px-20 xl:px-[162px]">
+            <div id="testimonials" className="w-full flex flex-col gap-16 xl:gap-30 px-4 md:px-10 lg:px-20 xl:px-40.5">
               
               {/* Slider 1 */}
               <SliderSection

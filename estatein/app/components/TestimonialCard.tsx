@@ -43,7 +43,7 @@ export default function TestimonialCard({
       {/* 3. Блок автора (Прижимается к низу благодаря mt-auto) */}
       <div className="flex items-center gap-3 mt-auto w-full">
         {/* Аватарка */}
-        <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+        <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0">
           <Image 
             src={authorImage} 
             alt={authorName} 

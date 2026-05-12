@@ -26,7 +26,7 @@ export default function PropertyCard({
       
       {/* 1. Изображение */}
       {/* aspect-[4/3] сохраняет пропорции фото независимо от ширины экрана */}
-      <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4">
+      <div className="relative w-full aspect-4/3 rounded-xl overflow-hidden mb-4">
         <Image 
           src={imageSrc} 
           alt={title} 

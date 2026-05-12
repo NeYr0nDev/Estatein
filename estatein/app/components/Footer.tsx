@@ -56,7 +56,7 @@ export default function Footer() {
             className="w-28.25 h-8.25"
           />
           <div className="flex items-center gap-1.5 w-full max-w-[423px] h-[66px] px-5 bg-grey-08 border border-grey-15 rounded-xl">
-            <div className="flex-shrink-0 flex items-center justify-center w-6 h-6">
+            <div className="shrink-0 flex items-center justify-center w-6 h-6">
               <Image src="/svg/mail.svg" alt="Email" width={24} height={24} />
             </div>
             <input
@@ -66,7 +66,7 @@ export default function Footer() {
             />
             <button
               type="button"
-              className="flex-shrink-0 flex items-center justify-center w-6 h-6 transition-transform hover:scale-110 active:scale-95"
+              className="shrink-0 flex items-center justify-center w-6 h-6 transition-transform hover:scale-110 active:scale-95"
             >
               <Image src="/svg/send.svg" alt="Send" width={24} height={24} />
             </button>

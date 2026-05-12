@@ -24,7 +24,7 @@ export default function Header() {
       {/* Кнопка бургера*/}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="z-[999] p-2 md:hidden"
+        className="z-999 p-2 md:hidden"
       >
         <Image src="/svg/burgerMenu.svg" alt="burgerMenu" width={28} height={28} className='w-7 h-7'/>
       </button>
@@ -32,7 +32,7 @@ export default function Header() {
       {/* Навигация */}
       <nav className={`
         fixed inset-0 bg-grey-10 flex flex-col items-center justify-center gap-6 
-        transition-transform duration-300 md:static md:flex-row md:transform-none z-[998]
+        transition-transform duration-300 md:static md:flex-row md:transform-none z-998
         ${isOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
       `}>
         
