@@ -7,7 +7,7 @@ import TestimonialCard from "./components/TestimonialCard";
 
 export default function Home() {
   return (
-      <div className="w-full flex flex-col flex-1 items-center gap-16 xl:gap-[120px] py-10 bg-zinc-50 font-sans dark:bg-grey-08 overflow-hidden">
+      <div className="w-full flex flex-col flex-1 items-center gap-16 xl:gap-[7.5rem] py-10 bg-grey-08 font-sans  overflow-hidden">
             
             <main id="heroSection" className="w-full flex flex-col gap-10 xl:gap-24">
               
