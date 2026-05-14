@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion"; // Импортируем framer-motion
+import { motion } from "framer-motion"; // 1. Импортируем motion
 
-export default function PropertyForm() {
+export default function ContactForm() {
   const [contactMethod, setContactMethod] = useState<"phone" | "email">(
     "phone",
   );
@@ -50,7 +50,7 @@ export default function PropertyForm() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: false }));
   };
 
-  // МАГИЯ: Умная маска для телефона (+7 (XXX) XXX-XX-XX)
+  // Умная маска для телефона (+7 (XXX) XXX-XX-XX)
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value.replace(/\D/g, ""); // Оставляем только цифры
     let formatted = "";
@@ -112,7 +112,6 @@ export default function PropertyForm() {
     if (isValid) {
       alert("Форма успешно отправлена! 🎉\nДанные в консоли.");
       console.log("Отправленные данные:", formValues);
-      // Здесь можно вызвать API для отправки (например, fetch)
     }
   };
 
@@ -195,10 +194,10 @@ export default function PropertyForm() {
   };
 
   return (
-    // Обертка с анимированным градиентом
+    // 2. ОБЕРТКА С АНИМИРОВАННЫМ ГРАДИЕНТОМ
     <div className="relative w-full p-[1px] bg-grey-15 rounded-2xl overflow-hidden">
       
-      {/* Вращающийся градиент (Светящаяся фиолетовая полоса) */}
+      {/* 3. Вращающийся градиент (Светящаяся фиолетовая полоса) */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
@@ -208,7 +207,7 @@ export default function PropertyForm() {
 
       <form
         ref={formRef}
-        // Сама форма теперь поверх градиента (z-10), со своим фоном (bg-grey-08) 
+        // 4. Сама форма теперь поверх градиента (z-10), со своим фоном (bg-grey-08) 
         // и чуть меньшим скруглением (rounded-[15px]), чтобы градиент было видно только по краям
         className="relative z-10 w-full p-5 lg:p-10 rounded-[15px] bg-grey-08"
         onSubmit={(e) => e.preventDefault()}
@@ -253,7 +252,6 @@ export default function PropertyForm() {
 
           <div className="flex flex-col col-span-1">
             <label className={labelClasses}>Телефон</label>
-            {/* Используем нашу маску для телефона */}
             <input
               name="phone"
               value={formValues.phone}
@@ -269,7 +267,7 @@ export default function PropertyForm() {
             "location",
             "Предпочитаемое местоположение",
             "Выберите место",
-            ["Москва", "Санкт-Петербург", "Казань", "Сочи","Нью-Йорк", "Лос-Анджелес", "Балли", "Гаваи"],
+            ["Москва", "Санкт-Петербург", "Казань", "Сочи"],
           )}
           {renderCustomSelect(
             "propertyType",
@@ -295,15 +293,14 @@ export default function PropertyForm() {
             "budget",
             "Бюджет",
             "Выберите бюджет",
-            ["До 500K $", "500K - 1M $", "1 - 2M $", "От 2M $"],
+            ["До 5 млн ₽", "5 - 10 млн ₽", "10 - 20 млн ₽", "От 20 млн ₽"],
             "col-span-1 lg:col-span-2",
           )}
 
-          {/* Способ связи (Синхронизировано с верхними полями) */}
+          {/* Способ связи */}
           <div className="flex flex-col col-span-1 lg:col-span-2">
             <label className={labelClasses}>Предпочтительный способ связи</label>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Инпут Телефон */}
               <div
                 onClick={() => setContactMethod("phone")}
                 className={`flex items-center justify-between px-5 py-3.5 border bg-grey-10 rounded-lg cursor-pointer transition-colors group ${
@@ -343,7 +340,6 @@ export default function PropertyForm() {
                 </div>
               </div>
 
-              {/* Инпут Email */}
               <div
                 onClick={() => setContactMethod("email")}
                 className={`flex items-center justify-between px-5 py-3.5 border bg-grey-10 rounded-lg cursor-pointer transition-colors group ${

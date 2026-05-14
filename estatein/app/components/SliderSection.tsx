@@ -86,7 +86,7 @@ export default function SliderSection({
       <div className="flex items-center justify-between pt-4 border-t border-grey-15">
         
         {/* Левая кнопка */}
-        <button className="px-5 py-3.5 bg-grey-10 border border-grey-15 rounded-lg text-sm text-white hover:bg-grey-10 transition-colors">
+        <button className="px-5 py-3.5 bg-grey-10 border border-grey-15 rounded-lg text-sm text-white hover:border-purple-60 hover:shadow-[0_0_6px_#262626] duration-350 ease transition-colors">
           {buttonText}
         </button>
 

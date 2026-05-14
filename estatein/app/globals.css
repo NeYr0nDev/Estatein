@@ -58,6 +58,11 @@ body {
 
 footer a{
   font-size: 0.875rem;
+  transition: all 200ms;
+}
+
+footer a:hover{
+  color: #aaaaaa;
 }
 
 button{
@@ -66,4 +71,8 @@ button{
 
 button:active{
   transform: scale(0.99);
+}
+
+p, h1, h4{
+  cursor: default;
 }

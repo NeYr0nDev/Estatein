@@ -13,14 +13,21 @@ export default function Footer() {
           alt="alt"
           width={522}
           height={284}
-          className="w-[32.625rem] h-[17.75rem] absolute -z-10 -left-[7.5625rem] top-0 lg:opacity-100 opacity-50"
+          className="w-[32.625rem] h-[17.75rem] md:hidden absolute -z-10 -left-[7.5625rem] top-0 lg:opacity-100 opacity-50"
+        />
+        <Image
+          src="/svg/AbstractDesignDT.svg"
+          alt="alt"
+          width={476}
+          height={258}
+          className="absolute top-0 left-0 -z-10 lg:w-[35.375rem] lg:-left-5"
         />
         <Image
           src="/svg/AbstractDesign.svg"
           alt="alt"
           width={398}
           height={217}
-          className="w-[24.875rem] h-[13.5625rem] absolute -z-10 top-[14.25rem] lg:top-1/2 left-[2.5625rem] lg:left-auto lg:right-0 lg:-translate-y-1/2 lg:opacity-100 opacity-50"
+          className="w-[24.875rem] h-auto md:w-[35.5625rem] lg:w-[45.3125rem]  absolute -z-10 top-[14.25rem] lg:top-2/3 left-[2.5625rem] lg:left-auto lg:right-0 lg:-translate-y-1/2 lg:opacity-100 opacity-50"
         />
 
         <div className="w-full lg:w-2/3 flex flex-col gap-4 z-10">
@@ -92,9 +99,10 @@ export default function Footer() {
             <div className="flex flex-col w-[9.9063rem] h-fit gap-4 border-b border-grey-15 pb-5">
               <h4 className="text-base text-grey-60">О нас</h4>
               <div className="flex flex-col gap-2 w-fit h-fit text-sm text-white">
-                <Link href="/About/#histories">Наши истории</Link>
-                <Link href="/About/#works">Наши работы</Link>
-                <Link href="/About/#hwt">Как это работает</Link>
+                <Link href="/About/#journey">Наше путешествие</Link>
+                <Link href="/About/#values">Наши ценности</Link>
+                <Link href="/About/#achievements">Наши достижения</Link>
+                <Link href="/About/#experience">Estatein Experience</Link>
                 <Link href="/About/#team">Наша команда</Link>
                 <Link href="/About/#clients">Наши клиенты</Link>
               </div>
@@ -104,17 +112,18 @@ export default function Footer() {
           <div className="w-fit h-fit flex gap-5">
             <div className="w-[9.9063rem] h-fit flex flex-col gap-5 border-b border-grey-15">
               <div className="flex flex-col w-[9.9063rem] h-fit gap-4 border-b border-grey-15 pb-5">
-                <h4 className="text-base text-grey-60">Свойства</h4>
+                <h4 className="text-base text-grey-60">Имущество</h4>
                 <div className="flex flex-col gap-2 w-fit h-fit text-sm text-white">
-                  <Link href="/About/#histories">Портфолио</Link>
-                  <Link href="/About/#works">Категории</Link>
+                  <Link href="/Properties/#search">Поиск недвижимости</Link>
+                  <Link href="/Properties/#opportunities">Мир возможностей</Link>
+                  <Link href="/Properties/#application">Оставить заявку</Link>
                 </div>
               </div>
               <div className="flex flex-col w-[9.9063rem] h-fit gap-4 pb-5">
                 <h4 className="text-base text-grey-60">Контакты</h4>
                 <div className="flex flex-col gap-2 w-fit h-fit text-sm text-white">
-                  <Link href="/About/#histories">Контактная форма</Link>
-                  <Link href="/About/#works">Наш офис</Link>
+                  <Link href="/Contacts/#contact-form">Контактная форма</Link>
+                  <Link href="/Contacts/#offices">Наш офис</Link>
                 </div>
               </div>
             </div>
@@ -122,11 +131,11 @@ export default function Footer() {
             <div className="flex flex-col w-[9.9063rem] gap-4 border-b border-grey-15 pb-5">
               <h4 className="text-base text-grey-60">Услуги</h4>
               <div className="flex flex-col gap-2 w-fit h-fit text-sm text-white">
-                <Link href="/About/#histories">Мастерство в оценке</Link>
-                <Link href="/About/#works">Стратегический маркетинг</Link>
-                <Link href="/About/#histories">Искусство переговоров</Link>
-                <Link href="/About/#works">Успешное завершение</Link>
-                <Link href="/About/#histories">Управление недвижимостью</Link>
+                <Link href="/Services/#search">Поиск недвижимости</Link>
+                <Link href="/Services/#property">Значение имущества</Link>
+                <Link href="/Services/#negotiations">Искусство переговоров</Link>
+                <Link href="/Services/#estate">Управление недвижимостью</Link>
+                <Link href="/Services/#investment">Разумные инвестиции</Link>
               </div>
             </div>
           </div>
@@ -140,128 +149,45 @@ export default function Footer() {
           <div className="flex flex-col gap-5">
             <h4 className="text-base text-grey-60 font-medium mb-1">Главная</h4>
             <div className="flex flex-col gap-3 text-sm text-white font-medium">
-              <Link
-                href="#heroSection"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Главный блок
-              </Link>
-              <Link
-                href="#features"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Особенности
-              </Link>
-              <Link
-                href="#Properties"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Отзывы
-              </Link>
-              <Link
-                href="#testimonials"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Рекомендации
-              </Link>
-              <Link
-                href="#faq"
-                className="hover:text-purple-60 transition-colors"
-              >
-                FAQ
-              </Link>
+              <Link href="/#heroSection">Главный блок</Link>
+                <Link href="/#features">Особенности</Link>
+                <Link href="/#Properties">Отзывы</Link>
+                <Link href="/#testimonials">Рекомендации</Link>
+                <Link href="/#faq">FAQ</Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-5">
             <h4 className="text-base text-grey-60 font-medium mb-1">О нас</h4>
             <div className="flex flex-col gap-3 text-sm text-white font-medium">
-              <Link
-                href="/About/#histories"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Наши истории
-              </Link>
-              <Link
-                href="/About/#works"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Наши работы
-              </Link>
-              <Link
-                href="/About/#hwt"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Как это работает
-              </Link>
-              <Link
-                href="/About/#team"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Наша команда
-              </Link>
-              <Link
-                href="/About/#clients"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Наши клиенты
-              </Link>
+              <Link href="/About/#journey">Наше путешествие</Link>
+                <Link href="/About/#values">Наши ценности</Link>
+                <Link href="/About/#achievements">Наши достижения</Link>
+                <Link href="/About/#experience">Estatein Experience</Link>
+                <Link href="/About/#team">Наша команда</Link>
+                <Link href="/About/#clients">Наши клиенты</Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-5">
             <h4 className="text-base text-grey-60 font-medium mb-1">
-              Свойства
+              Имущество
             </h4>
             <div className="flex flex-col gap-3 text-sm text-white font-medium">
-              <Link
-                href="/Properties/#portfolio"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Портфолио
-              </Link>
-              <Link
-                href="/Properties/#categories"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Категории
-              </Link>
+              <Link href="/Properties/#search">Поиск недвижимости</Link>
+              <Link href="/Properties/#opportunities">Мир возможностей</Link>
+              <Link href="/Properties/#application">Оставить заявку</Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-5">
             <h4 className="text-base text-grey-60 font-medium mb-1">Услуги</h4>
             <div className="flex flex-col gap-3 text-sm text-white font-medium">
-              <Link
-                href="/Services/#valuation"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Мастерство в оценке
-              </Link>
-              <Link
-                href="/Services/#marketing"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Стратегический маркетинг
-              </Link>
-              <Link
-                href="/Services/#negotiation"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Искусство переговоров
-              </Link>
-              <Link
-                href="/Services/#closing"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Успешное завершение
-              </Link>
-              <Link
-                href="/Services/#management"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Управление недвижимостью
-              </Link>
+             <Link href="/Services/#search">Поиск недвижимости</Link>
+                <Link href="/Services/#property">Значение имущества</Link>
+                <Link href="/Services/#negotiations">Искусство переговоров</Link>
+                <Link href="/Services/#estate">Управление недвижимостью</Link>
+                <Link href="/Services/#investment">Разумные инвестиции</Link>
             </div>
           </div>
 
@@ -270,18 +196,8 @@ export default function Footer() {
               Контакты
             </h4>
             <div className="flex flex-col gap-3 text-sm text-white font-medium">
-              <Link
-                href="/contact/#form"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Контактная форма
-              </Link>
-              <Link
-                href="/contact/#offices"
-                className="hover:text-purple-60 transition-colors"
-              >
-                Наши офисы
-              </Link>
+              <Link href="/Contacts/#contact-form">Контактная форма</Link>
+                  <Link href="/Contacts/#offices">Наш офис</Link>
             </div>
           </div>
         </div>

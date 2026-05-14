@@ -1,4 +1,8 @@
+"use client";
+
 import Image from 'next/image';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 interface PersonalCardProps {
   name: string;
@@ -11,12 +15,64 @@ export default function PersonalCard({
   position,
   imageSrc,
 }: PersonalCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // 1. Храним координаты мыши относительно центра карточки
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // 2. Делаем движения плавными (пружинная анимация), чтобы карточка не дергалась резко
+  const smoothX = useSpring(mouseX, { stiffness: 300, damping: 20 });
+  const smoothY = useSpring(mouseY, { stiffness: 300, damping: 20 });
+
+  // 3. Твоя математика из script.js:
+  // rotateX = (height / 2 - y) / 10 -> это то же самое, что -(y от центра) / 10
+  // rotateY = (x - width / 2) / 10 -> это то же самое, что (x от центра) / 10
+  const rotateX = useTransform(smoothY, (y) => -y / 20);
+  const rotateY = useTransform(smoothX, (x) => x / 20);
+
+  // Функция срабатывает при движении мыши по карточке
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    
+    // Вычисляем позицию мыши относительно ЦЕНТРА карточки
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    // Передаем значения в motion-переменные
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  // Когда мышка уходит, возвращаем карточку в исходное положение
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
-    <div className="flex flex-col p-6 bg-grey-08 border border-grey-15 rounded-2xl h-full w-full">
+    <motion.div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      // Применяем 3D-трансформации
+      style={{ 
+        rotateX, 
+        rotateY, 
+        transformPerspective: 1000 // Тот самый perspective(1000px) из твоего CSS
+      }}
+      // Эффекты при наведении и клике (твои scale(1.1) и scale(1.05))
+      whileHover={{ 
+        scale: 1.05, // В React 1.1 может быть слишком огромным для сетки, я поставил 1.05, но можешь вернуть 1.1
+        boxShadow: "0px 15px 25px rgba(0, 0, 0, 0.3)",
+        zIndex: 10 // Чтобы при увеличении карточка была поверх остальных
+      }}
+      className="flex flex-col p-6 bg-grey-08 border border-grey-15 rounded-2xl h-full w-full cursor-pointer will-change-transform"
+    >
       
       {/* 1. Блок с изображением */}
-      {/* ИСПРАВЛЕНО: добавил квадратные скобки aspect-[4/3], чтобы все фото были 100% одинакового размера */}
-      <div className="relative w-full aspect-4/3 mb-8">
+      <div className="relative w-full aspect-[4/3] mb-8">
         
         {/* Внутренний контейнер только для фото */}
         <div className="w-full h-full rounded-xl overflow-hidden rounded-[0.625rem]">
@@ -35,21 +91,19 @@ export default function PersonalCard({
       </div>
 
       {/* 3. Инфо блок */}
-      {/* Добавил flex-1, чтобы этот блок выталкивал кнопку вниз */}
       <div className="flex flex-col items-center gap-1.5 mb-6 flex-1">
         <span className="text-xl font-semibold text-white text-center">{name}</span>
-        {/* ИСПРАВЛЕНО: добавил min-h-[40px]. Это резервирует ровно 2 строчки под текст. */}
-        <span className="text-sm text-grey-60 text-center min-h-10">{position}</span>
+        <span className="text-sm text-grey-60 text-center min-h-[40px]">{position}</span>
       </div>
 
       {/* 4. Кнопка */}
       <button className='mt-auto w-full p-2 pl-6 flex justify-between items-center bg-grey-10 border border-grey-15 rounded-full hover:border-purple-60 hover:shadow-purple-60 hover:bg-grey-15 hover:shadow-[0_0_4px] duration-300 ease-out'>
-        <p>Поздароваться👋</p>
+        <p>Поздороваться 👋</p>
         <div className="p-3.5 bg-purple-60 rounded-full">
             <Image src="/svg/send.svg" alt="send" width={20} height={20} />
         </div>
       </button>
 
-    </div>
+    </motion.div>
   );
 }
