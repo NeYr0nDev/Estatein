@@ -4,7 +4,7 @@ import { useEffect } from 'react'; // Добавили useEffect для счет
 import Image from "next/image";
 import { SwiperSlide } from 'swiper/react'; 
 // Добавили хуки animate, useMotionValue, useTransform для бегущих чисел
-import { motion, animate, useMotionValue, useTransform } from 'framer-motion'; 
+import { motion, animate, useMotionValue, useTransform, Variants } from "framer-motion";
 import SliderSection from "./components/SliderSection";
 import PropertyCard from "./components/PropertyCard";
 import TestimonialCard from "./components/TestimonialCard";
@@ -32,22 +32,29 @@ const AnimatedNumber = ({ value, suffix }: { value: number, suffix: string }) =>
 export default function Home() {
   
   // НАСТРОЙКИ АНИМАЦИЙ
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
   };
 
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
 
-  const fadeInSection = {
+  const fadeInRight: Variants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.2, ease: "easeOut" } },
+  };
+
+  const fadeInSection: Variants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
+  const scaleInImage: Variants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
   return (
