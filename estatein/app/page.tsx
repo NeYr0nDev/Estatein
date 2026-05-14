@@ -41,15 +41,15 @@ export default function Home() {
 
                   {/* Статистика */}
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full mt-2">
-                    <div className="flex flex-col items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5">
+                    <div className="flex flex-col md:items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 items-center text-center md:text-start">
                       <span className="text-2xl lg:text-[2.5rem] font-bold text-white">200+</span>
                       <span className="text-sm lg:text-lg text-grey-60">Довольных клиентов</span>
                     </div>
-                    <div className="flex flex-col items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5">
+                    <div className="flex flex-col md:items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 items-center">
                       <span className="text-2xl lg:text-[2.5rem] font-bold text-white">10k+</span>
                       <span className="text-sm lg:text-lg text-grey-60">Недвижимостей</span>
                     </div>
-                    <div className="col-span-2 md:col-span-1 flex flex-col items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5">
+                    <div className="col-span-2 md:col-span-1 flex flex-col md:items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 items-center">
                       <span className="text-2xl lg:text-[2.5rem] font-bold text-white">16+</span>
                       <span className="text-sm lg:text-lg text-grey-60">Лет опыта</span>
                     </div>

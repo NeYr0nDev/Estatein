@@ -29,6 +29,26 @@ export default function SliderSection({
 
   const formatNumber = (num: number) => num.toString().padStart(2, '0');
 
+  // ФУНКЦИЯ ДЛЯ УМНОГО ПОДСЧЕТА КАРТОЧЕК
+  const updateCounter = (swiper: any) => {
+    if (!swiper) return;
+    
+    // 1. Узнаем, сколько карточек сейчас вмещается на экран (учитываем адаптив)
+    const spv = swiper.params.slidesPerView;
+    // Если число дробное (напр. 1.5 на планшете), берем целую часть (1 полная карточка)
+    const visibleCount = typeof spv === 'number' ? Math.floor(spv) : 1;
+    
+    // 2. Индекс активного слайда начинается с 0, поэтому прибавляем количество видимых
+    let current = swiper.activeIndex + visibleCount;
+    
+    // 3. Защита: чтобы счетчик не показал число больше, чем есть всего слайдов
+    if (current > swiper.slides.length) {
+        current = swiper.slides.length;
+    }
+    
+    setCurrentSlide(current);
+  };
+
   return (
     <section className="w-full">
       {/* 1. ШАПКА СЕКЦИИ */}
@@ -52,9 +72,11 @@ export default function SliderSection({
           onSwiper={(swiper) => {
             setSwiperInstance(swiper);
             setTotalSlides(swiper.slides.length);
+            updateCounter(swiper);
           }}
-          // При перелистывании обновляем цифру текущего слайда
-          onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex + 1)}
+          onSlideChange={(swiper) => updateCounter(swiper)}
+          onResize={(swiper) => updateCounter(swiper)}
+          className="w-full"
         >
           {children}
         </Swiper>

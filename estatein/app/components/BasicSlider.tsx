@@ -19,11 +19,29 @@ export default function BasicSlider({
 
   const formatNumber = (num: number) => num.toString().padStart(2, '0');
 
+  // ФУНКЦИЯ ДЛЯ УМНОГО ПОДСЧЕТА КАРТОЧЕК
+  const updateCounter = (swiper: any) => {
+    if (!swiper) return;
+    
+    // 1. Узнаем, сколько карточек сейчас вмещается на экран (учитываем адаптив)
+    const spv = swiper.params.slidesPerView;
+    // Если число дробное (напр. 1.5 на планшете), берем целую часть (1 полная карточка)
+    const visibleCount = typeof spv === 'number' ? Math.floor(spv) : 1;
+    
+    // 2. Индекс активного слайда начинается с 0, поэтому прибавляем количество видимых
+    let current = swiper.activeIndex + visibleCount;
+    
+    // 3. Защита: чтобы счетчик не показал число больше, чем есть всего слайдов
+    if (current > swiper.slides.length) {
+        current = swiper.slides.length;
+    }
+    
+    setCurrentSlide(current);
+  };
+
   return (
-    // 1. САМОЕ ВАЖНОЕ: min-w-0 на главном контейнере останавливает бесконечный цикл Flexbox
     <div className="w-full min-w-0 flex flex-col">
       
-      {/* 2. ВТОРОЕ ВАЖНОЕ: overflow-hidden именно вокруг самого Swiper */}
       <div className="w-full min-w-0 overflow-hidden mb-8 md:mb-10 relative">
         <Swiper
           spaceBetween={20}
@@ -32,19 +50,21 @@ export default function BasicSlider({
             768: { slidesPerView: 1.5 },
             1024: { slidesPerView: slidesPerViewDesktop },
           }}
+          // ВЫЗЫВАЕМ НАШУ ФУНКЦИЮ В 3Х СЛУЧАЯХ:
           onSwiper={(swiper) => {
             setSwiperInstance(swiper);
             setTotalSlides(swiper.slides.length);
+            updateCounter(swiper); // 1. При первой загрузке
           }}
-          onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex + 1)}
+          onSlideChange={(swiper) => updateCounter(swiper)} // 2. При перелистывании
+          onResize={(swiper) => updateCounter(swiper)}      // 3. При повороте телефона / изменении ширины окна
           className="w-full"
         >
           {children}
         </Swiper>
       </div>
 
-      {/* Навигация */}
-      <div className="flex items-center justify-between pt-6 border-t border-grey-15 w-full min-w-0">
+      <div className="flex items-center justify-between pt-4 border-t border-grey-15 w-full min-w-0">
         
         {/* Десктопный счетчик */}
         <div className="hidden md:block text-grey-50 text-base">
