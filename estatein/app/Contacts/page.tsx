@@ -165,31 +165,60 @@ export default function Contacts() {
       </motion.section>
       
       {/* 4. ГАЛЕРЕЯ */}
-      <div className="px-4 pd:mx-20 lg:px-40.5">
-            <section className="w-full bg-[url(/svg/gallerybg.svg)] bg-no-repeat bg-cover flex flex-col gap-12.5 md:gap-5 md:p-15 p-6 border border-grey-15 rounded-xl ">
-              <div className="flex w-full gap-2.5 md:gap-5">
-                <div className="flex flex-col gap-2.5 md:gap-5 w-full">
-                  <Image unoptimized src="/img/gallery1.png" alt="alt" width={708.5} height={236} className="w-full" />
-                  <Image src="/img/gallery2.png" alt="alt" width={708.5} height={236} className="w-full" />
-                </div>
-                <div className="flex flex-col gap-2.5 md:gap-5 w-full">
-                  <Image src="/img/gallery3.png" alt="alt" width={708.5} height={236} className="w-full" />
-                  <div className="flex gap-2.5 md:gap-5 w-full">
-                    <Image src="/img/gallery4.png" alt="alt" width={344.25} height={236} className="w-full" />
-                    <Image src="/img/gallery5.png" alt="alt" width={344.25} height={236} className="w-full" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col md:flex-row items-center w-full">
-              <div className="flex flex-col gap-2">
-              <Image src="/svg/stars.svg" alt="stars" width={55} height={24} className="mb-1.5" />
-                <h1 className="font-semibold text-[1.75rem] md:text-[2.375rem] lg:text-5xl">Исследуйте мир Estatein</h1>
-                <p className="font-medium text-sm md:text-base lg:text-lg text-grey-60">Окунитесь в мир Estatein, где профессионализм сочетается с теплотой, а опыт — со страстью. Наша галерея позволяет заглянуть в наши рабочие помещения и познакомиться с нашей командой поближе.</p>
-              </div>
-              <Image src="/img/galleryB.png" alt="alt" width={708.5} height={280} className="w-full mt-5 md:mt-0 md:ml-5" />
-              </div>
-            </section>
+      {/* Заодно исправил опечатку с pd:mx-20 на md:px-20 */}
+      <div className="px-4 md:px-20 lg:px-40.5">
+        <section className="w-full bg-[url(/svg/gallerybg.svg)] bg-no-repeat bg-cover flex flex-col gap-12.5 md:gap-5 md:p-15 p-6 border border-grey-15 rounded-xl ">
+          <div className="flex w-full gap-2.5 md:gap-5">
+            
+            {/* Левая колонка */}
+<div className="flex flex-col gap-2.5 md:gap-5 w-1/2">
+  <div className="relative w-full aspect-[149.5/71.5]">
+    <Image unoptimized src="/img/gallery1.png" alt="gallery 1" fill className="object-cover rounded-lg" />
+  </div>
+  <div className="relative w-full aspect-[149.5/71.5]">
+    <Image unoptimized src="/img/gallery2.png" alt="gallery 2" fill className="object-cover rounded-lg" />
+  </div>
+</div>
+
+{/* Правая колонка */}
+<div className="flex flex-col gap-2.5 md:gap-5 w-1/2">
+  <div className="relative w-full aspect-[149.5/71.5]">
+    <Image unoptimized src="/img/gallery3.png" alt="gallery 3" fill className="object-cover rounded-lg" />
+  </div>
+  <div className="flex gap-2.5 md:gap-5 w-full">
+    <div className="relative w-full aspect-[69.75/71.5]">
+      <Image unoptimized src="/img/gallery4.png" alt="gallery 4" fill className="object-cover rounded-lg" />
+    </div>
+    <div className="relative w-full aspect-[69.75/71.5]">
+      <Image unoptimized src="/img/gallery5.png" alt="gallery 5" fill className="object-cover rounded-lg" />
+    </div>
+  </div>
+</div>
+
           </div>
+          
+          <div className="flex flex-col md:flex-row items-center w-full gap-5">
+            <div className="flex flex-col gap-2 flex-1">
+              <Image src="/svg/stars.svg" alt="stars" width={55} height={24} className="mb-1.5" />
+              <h1 className="font-semibold text-[1.75rem] md:text-[2.375rem] lg:text-5xl text-white">Исследуйте мир Estatein</h1>
+              <p className="font-medium text-sm md:text-base lg:text-lg text-grey-60">
+                Окунитесь в мир Estatein, где профессионализм сочетается с теплотой, а опыт — со страстью. Наша галерея позволяет заглянуть в наши рабочие помещения и познакомиться с нашей командой поближе.
+              </p>
+            </div>
+            
+            {/* ИСПРАВЛЕНО: Контейнер-маска со вторым способом адаптации */}
+            <div className="relative w-full md:max-w-[309px] lg:max-w-[509px] xl:max-w-[709px] aspect-[309/135] mt-5 md:mt-0 md:ml-5 flex-shrink-0">
+              <Image 
+                unoptimized 
+                src="/img/galleryB.png" 
+                alt="gallery B" 
+                fill 
+                className="object-cover rounded-lg" 
+              />
+            </div>
+          </div>
+        </section>
+      </div>
       
     </div>
   );

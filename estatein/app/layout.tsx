@@ -24,7 +24,7 @@ export default function RootLayout({
       lang="ru"
       className={`h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-full w-full flex flex-col font-sans">
         <Header/>
         {children}
         <Footer/>

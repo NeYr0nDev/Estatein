@@ -37,7 +37,7 @@ export default function Header() {
       {/* Навигация */}
       <nav className={`
         fixed inset-0 bg-grey-10 flex flex-col items-center justify-center gap-6 
-        transition-transform duration-300 md:static md:flex-row md:transform-none z-[998]
+        transition-transform duration-300 md:static md:flex-row md:transform-none z-[998] text-nowrap
         ${isOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
       `}>
         
