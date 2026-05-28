@@ -242,7 +242,7 @@ export default function Properties() {
                 <PropertyCard2 imageSrc="/img/haven.png" name="Городской оазис — жизнь в центре города" title="Столичный рай" description="Погрузитесь в атмосферу города. Эта современная квартира в самом центре..." price="650,000" />
               </SwiperSlide>
               <SwiperSlide>
-                <PropertyCard2 imageSrc="/img/cottage.png" name="Очарование сельской местности — отдых на лоне природы" title="Коттедж Rustic Retreat" description="ПросНасладитесь спокойствием загородной жизни. Этот очаровательный коттедж расположен среди холмов..." price="350,000" />
+                <PropertyCard2 imageSrc="/img/cottage.png" name="Очарование загорода — побег в объятия природы" title="Коттедж Rustic Retreat" description="Насладитесь спокойствием загородной жизни. Этот очаровательный коттедж расположен среди холмов..." price="350,000" />
               </SwiperSlide>
               <SwiperSlide>
                 <PropertyCard2 imageSrc="/img/villa.png" name="Прибрежные пейзажи — там, где манят волны" title="Вилла на берегу моря" description="Просыпайтесь под убаюкивающий шум волн. Эта вилла на берегу моря предлагает..." price="1,200,000" />
@@ -251,7 +251,7 @@ export default function Properties() {
                 <PropertyCard2 imageSrc="/img/haven.png" name="Городской оазис — жизнь в центре города" title="Столичный рай" description="Погрузитесь в атмосферу города. Эта современная квартира в самом центре..." price="650,000" />
               </SwiperSlide>
               <SwiperSlide>
-                <PropertyCard2 imageSrc="/img/cottage.png" name="Очарование сельской местности — отдых на лоне природы" title="Коттедж Rustic Retreat" description="ПросНасладитесь спокойствием загородной жизни. Этот очаровательный коттедж расположен среди холмов..." price="350,000" />
+                <PropertyCard2 imageSrc="/img/cottage.png" name="Очарование загорода — побег в объятия природы" title="Коттедж Rustic Retreat" description="Насладитесь спокойствием загородной жизни. Этот очаровательный коттедж расположен среди холмов..." price="350,000" />
               </SwiperSlide>
             </BasicSlider>
           </motion.div>
