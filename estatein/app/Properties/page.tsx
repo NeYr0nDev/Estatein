@@ -10,6 +10,7 @@ import { motion, Variants } from "framer-motion";
 import { propertiesData } from "../data/propertiesData";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import PropertyCardSkeleton from "../components/PropertyCardSkeleton";
+import { useRouter } from "next/navigation";
 
 export default function Properties() {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
@@ -22,6 +23,7 @@ export default function Properties() {
     useState(propertiesData);
   const [viewMode, setViewMode] = useState<"slider" | "map">("slider");
   const filtersRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -533,14 +535,17 @@ export default function Properties() {
                       height="100%"
                     >
                       {displayedProperties.map((property) => (
-                        <Placemark
+                        <Placemark 
                           key={property.id}
                           geometry={property.coordinates}
+                          onClick={() => router.push(`/Properties/${property.id}`)} // Мгновенный переход в Next.js
                           properties={{
-                            balloonContentHeader: `<a href="/properties/${property.id}" style="color: #703bf7; font-weight: bold;">${property.title}</a>`,
-                            balloonContentBody: `${property.price} ₽`,
+                            hintContent: property.title, // При наведении на метку покажется название
                           }}
-                          options={{ preset: "islands#violetIcon" }}
+                          options={{ 
+                            preset: 'islands#violetIcon',
+                            hasBalloon: false // Отключаем балун, так как мы сразу переходим на страницу
+                          }}
                         />
                       ))}
                     </Map>
