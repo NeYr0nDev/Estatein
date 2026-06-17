@@ -3,10 +3,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useCurrency } from './CurrencyContext';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { currency, setCurrency } = useCurrency();
 
   const navLinks = [
     { name: 'Главная', href: '/' },
@@ -75,21 +77,43 @@ export default function Header() {
         >
           Связаться
         </Link>
+
+        <select 
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value as "RUB" | "USD" | "EUR")}
+          className="md:hidden bg-grey-10 border border-grey-15 text-white text-sm rounded-lg px-3 py-3 outline-none cursor-pointer hover:bg-grey-15 transition-colors appearance-none"
+        >
+          <option value="RUB">RUB ₽</option>
+          <option value="USD">USD $</option>
+          <option value="EUR">EUR €</option>
+        </select>
+        
       </nav>
       
       {/* Десктопная кнопка "Связаться" */}
-      <Link 
-        href="/Contacts"
-        className={`
-          hidden md:block px-5 py-3.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-[0_0_8px_rgba(255,255,255,0.05)] active:scale-95
-          ${isContactActive 
-            ? 'bg-purple-60 border border-purple-60 text-white shadow-[0_0_12px_rgba(112,59,247,0.4)]' // АКТИВНАЯ: Фиолетовая с легким свечением
-            : 'bg-grey-08 border border-grey-15 text-white hover:bg-grey-10 hover:border-purple-60' // НЕАКТИВНАЯ: Серая
-          }
-        `}
-      >
-        Связаться
-      </Link>
+      <div className="gap-3 hidden md:flex">
+        <Link
+          href="/Contacts"
+          className={`
+            hidden md:block px-5 py-3.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-[0_0_8px_rgba(255,255,255,0.05)] active:scale-95
+            ${isContactActive
+              ? 'bg-purple-60 border border-purple-60 text-white shadow-[0_0_12px_rgba(112,59,247,0.4)]' // АКТИВНАЯ: Фиолетовая с легким свечением
+              : 'bg-grey-08 border border-grey-15 text-white hover:bg-grey-10 hover:border-purple-60' // НЕАКТИВНАЯ: Серая
+            }
+          `}
+        >
+          Связаться
+        </Link>
+        <select
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value as "RUB" | "USD" | "EUR")}
+            className="hidden md:block bg-grey-10 border border-grey-15 text-white text-sm rounded-lg px-3 py-3 outline-none cursor-pointer hover:bg-grey-15 transition-colors appearance-none"
+          >
+            <option value="RUB">RUB ₽</option>
+            <option value="USD">USD $</option>
+            <option value="EUR">EUR €</option>
+          </select>
+      </div>
       
     </header>
   );

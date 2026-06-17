@@ -1,7 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { useCurrency } from './CurrencyContext';
 
 // Описываем, какие данные будет принимать карточка
 interface PropertyCard2Props {
+  id: string;
   imageSrc: string;
   name: string;
   title: string;
@@ -10,12 +13,15 @@ interface PropertyCard2Props {
 }
 
 export default function PropertyCard2({
+  id,
   imageSrc,
   name,
   title,
   description,
   price
 }: PropertyCard2Props) {
+  const { formatPrice } = useCurrency();
+  const formattedPrice = formatPrice(Number(price.replace(/,/g, "")));
   return (
     // h-full и flex-col нужны, чтобы карточки в свайпере были одинаковой высоты
     <div className="flex flex-col p-5 md:p-7.5 lg:p-10 bg-grey-08 border border-grey-15 rounded-xl h-full">
@@ -37,9 +43,9 @@ export default function PropertyCard2({
       <h3 className="text-xl font-semibold text-white mb-0.5">{title}</h3>
       <p className="text-grey-50 text-sm mb-5 leading-relaxed">
         {description}{' '}
-        <button className="text-white underline font-medium">
+        <Link href={`/Properties/${id}`} className="text-white underline font-medium">
           Читать дальше
-        </button>
+        </Link>
       </p>
 
       {/* 4. Подвал (Цена и кнопка) */}
@@ -47,12 +53,12 @@ export default function PropertyCard2({
       <div className="flex items-center justify-between mt-auto w-full pt-2">
         <div className="flex flex-col">
           <span className="text-grey-50 text-sm mb-1">Цена</span>
-          <span className="text-xl font-semibold text-white">${price}</span>
+          <span className="text-xl font-semibold text-white">{formattedPrice}</span>
         </div>
         
-        <button className="px-5 py-3.5 w-fit bg-purple-60 hover:bg-purple-65 transition-colors rounded-lg text-white text-sm font-medium">
+        <Link href={`/Properties/${id}`} className="px-5 py-3.5 w-fit bg-purple-60 hover:bg-purple-65 transition-colors rounded-lg text-white text-sm font-medium">
           Подробная информация
-        </button>
+        </Link>
       </div>
 
     </div>

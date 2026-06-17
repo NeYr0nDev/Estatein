@@ -269,10 +269,10 @@ export default function About() {
             </motion.p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7.5">
-            <motion.div variants={fadeInUp}><PersonalCard imageSrc="/img/MaxMitchell.png" name="Max Mitchel" position="Основатель" /></motion.div>
-            <motion.div variants={fadeInUp}><PersonalCard imageSrc="/img/SarahJonson.png" name="Sarah Johnson" position="Главный специалист по недвижимости" /></motion.div>
-            <motion.div variants={fadeInUp}><PersonalCard imageSrc="/img/DavidBrown.png" name="David Brown" position="Руководитель отдела управления недвижимостью" /></motion.div>
-            <motion.div variants={fadeInUp}><PersonalCard imageSrc="/img/MichaelTurner.png" name="Michael Turner" position="Юрист-консультант" /></motion.div>
+            <motion.div variants={fadeInUp}><PersonalCard imageSrc="/img/MaxMitchell.png" name="Митчелл Максим Эдуардович" position="Основатель / Главный исполнительный директор (CEO)" /></motion.div>
+            <motion.div variants={fadeInUp}><PersonalCard imageSrc="/img/SarahJonson.png" name="Ермакова Софья Алексеевна" position="Директор по развитию / Региональный управляющий" /></motion.div>
+            <motion.div variants={fadeInUp}><PersonalCard imageSrc="/img/DavidBrown.png" name="Токарев Даниил Игоревич" position="Руководитель отдела управления недвижимостью" /></motion.div>
+            <motion.div variants={fadeInUp}><PersonalCard imageSrc="/img/MichaelTurner.png" name="Трушина Алена Владимировна" position="Юрист-консультант" /></motion.div>
           </div>
         </div>
       </motion.section>

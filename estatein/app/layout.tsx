@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { CurrencyProvider } from "./components/CurrencyContext";
 
 // const urbanist = Urbanist({
 //   variable: "--font-urbanist",
@@ -25,9 +26,11 @@ export default function RootLayout({
       className={`h-full antialiased`}
     >
       <body className="min-h-full w-full flex flex-col font-sans">
-        <Header/>
-        {children}
-        <Footer/>
+        <CurrencyProvider>
+          <Header/>
+          {children}
+          <Footer/>
+        </CurrencyProvider>
         </body>
     </html>
   );

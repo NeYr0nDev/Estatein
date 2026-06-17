@@ -8,6 +8,7 @@ import { motion, animate, useMotionValue, useTransform, Variants } from "framer-
 import SliderSection from "./components/SliderSection";
 import PropertyCard from "./components/PropertyCard";
 import TestimonialCard from "./components/TestimonialCard";
+import { propertiesData } from "./data/propertiesData"; // Импортируем наши данные о недвижимости
 
 // НОВЫЙ КОМПОНЕНТ: Анимация бегущих чисел
 const AnimatedNumber = ({ value, suffix }: { value: number, suffix: string }) => {
@@ -201,12 +202,20 @@ export default function Home() {
                 title="Рекомендации"
                 description="Ознакомьтесь с нашей тщательно отобранной подборкой предлагаемых объектов недвижимости. Каждое объявление дает представление об исключительных домах и инвестициях, доступных через Estatein."
                 buttonText="Все рекомендации">
-                  <SwiperSlide><PropertyCard imageSrc="/img/villa.png" title="Вилла на берегу моря" description="Потрясающая вилла с 4 спальнями и 3 ванными комнатами в тихом пригородном районе..." bedrooms={4} bathrooms={3} type="Вилла" price="$550,000" /></SwiperSlide>
-                  <SwiperSlide><PropertyCard imageSrc="/img/haven.png" title="Столичный рай" description="Шикарные и полностью меблированные апартаменты с 2 спальнями и панорамным видом на город..." bedrooms={2} bathrooms={2} type="Вилла" price="$550,000" /></SwiperSlide>
-                  <SwiperSlide><PropertyCard imageSrc="/img/cottage.png" title="Уединенный коттедж" description="Элегантный таунхаус с 3 спальнями и 2,5 ванными комнатами в закрытом жилом комплексе..." bedrooms={3} bathrooms={3} type="Вилла" price="$550,000" /></SwiperSlide>
-                  <SwiperSlide><PropertyCard imageSrc="/img/villa.png" title="Вилла на берегу моря" description="Потрясающая вилла с 4 спальнями и 3 ванными комнатами в тихом пригородном районе..." bedrooms={4} bathrooms={3} type="Вилла" price="$550,000" /></SwiperSlide>
-                  <SwiperSlide><PropertyCard imageSrc="/img/haven.png" title="Столичный рай" description="Шикарные и полностью меблированные апартаменты с 2 спальнями и панорамным видом на город..." bedrooms={2} bathrooms={2} type="Вилла" price="$550,000" /></SwiperSlide>
-                  <SwiperSlide><PropertyCard imageSrc="/img/cottage.png" title="Уединенный коттедж" description="Элегантный таунхаус с 3 спальнями и 2,5 ванными комнатами в закрытом жилом комплексе..." bedrooms={3} bathrooms={3} type="Вилла" price="$550,000" /></SwiperSlide>
+                  {propertiesData.map((property) => (
+                    <SwiperSlide key={property.id}>
+                      <PropertyCard 
+                        id={property.id} // Передаем ID для роутинга
+                        imageSrc={property.imageSrc} 
+                        title={property.title} 
+                        description={property.description} 
+                        bedrooms={property.bedrooms} 
+                        bathrooms={property.bathrooms} 
+                        type={property.type} 
+                        price={`${property.price}`}
+                      />
+                    </SwiperSlide>
+                  ))}
                 </SliderSection>
               </motion.div>
 
