@@ -49,14 +49,20 @@ export default function PropertyCard2({
       </p>
 
       {/* 4. Подвал (Цена и кнопка) */}
-      {/* mt-auto прижимает этот блок к самому низу, если описание сверху короткое */}
-      <div className="flex items-center justify-between mt-auto w-full pt-2">
-        <div className="flex flex-col">
+      <div className="flex flex-col 2xl:flex-row items-start 2xl:items-center justify-between mt-auto w-full pt-4 gap-4">
+        
+        {/* Добавили min-w-0, чтобы защита от вылезания текста (truncate) работала на 100% */}
+        <div className="flex flex-col min-w-0 max-w-full">
           <span className="text-grey-50 text-sm mb-1">Цена</span>
-          <span className="text-xl font-semibold text-white">{formattedPrice}</span>
+          <span className="text-xl font-semibold text-white truncate" title={formattedPrice}>
+            {formattedPrice}
+          </span>
         </div>
         
-        <Link href={`/Properties/${id}`} className="px-5 py-3.5 w-fit bg-purple-60 hover:bg-purple-65 transition-colors rounded-lg text-white text-sm font-medium">
+        <Link 
+          href={`/Properties/${id}`} 
+          className="w-full 2xl:w-auto text-center px-4 py-3.5 bg-purple-60 hover:bg-purple-65 transition-colors rounded-lg text-white text-sm font-medium shrink-0"
+        >
           Подробная информация
         </Link>
       </div>

@@ -303,7 +303,7 @@ export default function Properties() {
         className="w-full flex flex-col gap-10 md:gap-14 bg-linear-116 from-0% from-grey-15 to-33% to-grey-08 px-4 md:px-0 md:border-b border-grey-15 relative md:mb-30"
       >
         {/* БЛОК С ТЕКСТОМ */}
-        <div className="flex flex-col gap-4 pt-12.5 md:pl-20 md:pr-50 lg:pr-100 lg:pl-40.5 md:pt-25 md:pb-32.5 border-b border-grey-15 md:border-none pb-12.5">
+        <div className="flex flex-col gap-4 pt-12.5 px-4 md:px-10 lg:px-20 2xl:pr-100 2xl:pl-40.5 md:pt-25 md:pb-32.5 border-b border-grey-15 md:border-none pb-12.5">
           <motion.h1
             variants={fadeInUp}
             className="text-[1.75rem] md:text-[2.375rem] lg:text-5xl font-semibold text-white leading-tight"
@@ -321,10 +321,7 @@ export default function Properties() {
         </div>
 
         {/* БЛОК ПОИСКА И ФИЛЬТРОВ */}
-        <motion.div
-          variants={fadeInUp}
-          className="w-full flex flex-col gap-4 lg:gap-0 md:px-20 md:absolute md:-bottom-32.5 z-20"
-        >
+        <motion.div variants={fadeInUp} className="w-full flex flex-col gap-4 lg:gap-0 px-4 md:px-10 lg:px-20 2xl:px-30 md:absolute md:-bottom-32.5 z-20">
           {/* Главная строка поиска */}
           <div className="flex flex-row items-center w-full md:w-auto md:mx-20 p-2.5 pl-4 md:p-4 md:pl-5 lg:p-5 lg:pl-6 bg-grey-08 border border-grey-15 rounded-xl shadow-[0_0_0_4px_#191919] lg:rounded-t-2xl lg:rounded-b-none lg:border-b-0 lg:shadow-[0_0_0_10px_#191919]">
             <div className="flex-1 w-full px-3 md:px-4 py-2">
@@ -429,14 +426,7 @@ export default function Properties() {
       </motion.section>
 
       {/* 2. СЕКЦИЯ ВОЗМОЖНОСТЕЙ И КАРТЫ */}
-      <motion.section
-        id="opportunities"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="flex flex-col w-full min-w-0 px-4 md:px-20 lg:px-40.5 md:pt-16"
-      >
+      <motion.section id="opportunities" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="flex flex-col w-full min-w-0 px-4 md:px-10 lg:px-20 2xl:px-40.5 md:pt-16">
         <motion.div variants={fadeInUp}>
           <Image
             src="/svg/stars.svg"
@@ -593,14 +583,7 @@ export default function Properties() {
       </motion.section>
 
       {/* 3. СЕКЦИЯ ЗАЯВКИ */}
-      <motion.section
-        id="application"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        className="flex flex-col w-full min-w-0 px-4 md:px-20 lg:px-40.5 mb-10"
-      >
+      <motion.section id="application" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="flex flex-col w-full min-w-0 px-4 md:px-10 lg:px-20 2xl:px-40.5 mb-10">
         {/* ... (Без изменений) ... */}
         <motion.div variants={fadeInUp}>
           <Image

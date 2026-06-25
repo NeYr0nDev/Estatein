@@ -145,7 +145,7 @@ export default function Services() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7.5">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
             <motion.div variants={fadeInUp}>
               <ServiceCard imgSrc="/svg/valuation.svg" title="Мастерство в оценке" description="Узнайте истинную стоимость своей недвижимости с помощью наших экспертных услуг по оценке." />
             </motion.div>
@@ -195,7 +195,7 @@ export default function Services() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7.5">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
             <motion.div variants={fadeInUp}>
               <ServiceCard imgSrc="/svg/tenat.svg" title="Гармония арендаторов" description="Наши услуги по управлению арендой гарантируют, что у ваших арендаторов не возникнет проблем с поиском жилья и количество свободных квартир сократится." />
             </motion.div>
@@ -223,7 +223,8 @@ export default function Services() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
-        className="flex flex-col w-full min-w-0 px-4 md:px-20 lg:px-40.5 mb-10"
+        // ВОТ ОНИ, СПАСИТЕЛЬНЫЕ ОТСТУПЫ:
+        className="flex flex-col w-full min-w-0 px-4 md:px-10 lg:px-20 2xl:px-40.5 mb-10"
       >
         <motion.div variants={fadeInUp}>
           <Image
@@ -231,15 +232,15 @@ export default function Services() {
             alt="alt"
             width={46}
             height={20}
-            className="w-[2.875rem] h-auto"
+            className="w-[2.875rem] h-auto mb-3.5"
           />
         </motion.div>
 
-        {/* Убрал mt-3.5 и вернул оригинальные классы обертки */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-12.5 lg:gap-15 items-center">
+        {/* СЕТКА КОЛОНОК */}
+        <div className="flex flex-col xl:flex-row gap-10 md:gap-12.5 lg:gap-15 items-start">
           
-          {/* Левая колонка (Убрано w-full md:w-1/2, возвращен оригинальный размер) */}
-          <motion.div variants={fadeInLeft} className="flex flex-col gap-3.5">
+          {/* ЛЕВАЯ КОЛОНКА (Текст + Карточка) */}
+          <motion.div variants={fadeInLeft} className="w-full xl:w-1/2 flex flex-col gap-3.5">
             <h1 className="font-semibold text-[1.75rem] lg:text-5xl text-white">
               Разумные инвестиции, взвешенные решения
             </h1>
@@ -250,7 +251,6 @@ export default function Services() {
               вложения.
             </p>
             
-            {/* Баннер-карточка слева (Возвращен w-fit, но оставлены красивые hover-эффекты) */}
             <motion.div 
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -270,8 +270,8 @@ export default function Services() {
             </motion.div>
           </motion.div>
 
-          {/* Правая колонка (Убрано w-full md:w-1/2, возвращен оригинальный грид) */}
-          <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-2.5 p-2.5 bg-grey-10 rounded-xl">
+          {/* ПРАВАЯ КОЛОНКА (4 Карточки услуг) */}
+          <motion.div variants={staggerContainer} className="w-full xl:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-2.5 p-2.5 bg-grey-10 rounded-xl">
             <motion.div variants={fadeInUp}>
               <ServiceCard
                 imgSrc="/svg/valuation.svg"

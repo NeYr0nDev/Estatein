@@ -21,47 +21,43 @@ export default function Header() {
   const isContactActive = pathname === '/Contacts';
 
   return (
-    <header className="flex items-center justify-between px-4 py-5 shadow-md bg-grey-10 md:px-30 relative z-50">
-      
-      {/* Логотип */}
-      <Link href="/">
-        <Image src="/svg/Logo.svg" alt="Estatein" width={93} height={28} className='w-[5.8125rem] h-7 md:w-[10rem] md:h-[3rem]'/>
-      </Link>
+    <header className="sticky md:static top-0 z-50 flex items-center justify-between px-4 py-5 shadow-md bg-grey-10 md:px-10 lg:px-20 xl:px-30">
+  
+  {/* Логотип (уменьшили немного на средних экранах для экономии места) */}
+  <Link href="/">
+    <Image src="/svg/Logo.svg" alt="Estatein" width={93} height={28} className='w-[5.8rem] h-7 md:w-[8rem] lg:w-[10rem]'/>
+  </Link>
 
-      {/* Кнопка бургера */}
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="z-[999] p-2 md:hidden"
-      >
-        <Image src="/svg/burgerMenu.svg" alt="burgerMenu" width={28} height={28} className='w-7 h-7'/>
-      </button>
+  {/* Кнопка бургера */}
+  <button onClick={() => setIsOpen(!isOpen)} className="z-[999] p-2 md:hidden">
+    <Image src="/svg/burgerMenu.svg" alt="burgerMenu" width={28} height={28} className='w-7 h-7'/>
+  </button>
 
-      {/* Навигация */}
-      <nav className={`
-        fixed inset-0 bg-grey-10 flex flex-col items-center justify-center gap-6 
-        transition-transform duration-300 md:static md:flex-row md:transform-none z-[998] text-nowrap
-        ${isOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
-      `}>
-        
-        {/* Основные ссылки */}
-        {navLinks.map((link) => {
-          const isActive = pathname === link.href;
-          
-          return (
-            <Link 
-              key={link.name}
-              href={link.href} 
-              onClick={() => setIsOpen(false)}
-              className={`px-5 py-2.5 rounded-lg transition-all duration-150 ease-in ${
-                isActive 
-                  ? 'bg-grey-08 border border-grey-15 text-white'
-                  : 'border border-transparent hover:text-purple-75 text-white/80 hover:text-white'
-              }`}
-            >
-              {link.name}
-            </Link>
-          );
-        })}
+  {/* Навигация */}
+  <nav className={`
+    fixed inset-0 bg-grey-10 flex flex-col items-center justify-center gap-6 
+    transition-transform duration-300 md:static md:flex-row md:transform-none z-[998] text-nowrap
+    md:gap-3 lg:gap-6
+    ${isOpen ? 'translate-x-0' : 'translate-x-full md:translate-x-0'}
+  `}>
+    
+    {navLinks.map((link) => {
+      const isActive = pathname === link.href;
+      return (
+        <Link 
+          key={link.name}
+          href={link.href} 
+          onClick={() => setIsOpen(false)}
+          className={`px-3 lg:px-5 py-2.5 rounded-lg transition-all duration-150 ${
+            isActive 
+              ? 'bg-grey-08 border border-grey-15 text-white'
+              : 'border border-transparent text-white/80 hover:text-white'
+          }`}
+        >
+          {link.name}
+        </Link>
+      );
+    })}
 
         {/* Мобильная кнопка "Связаться" */}
         <Link 

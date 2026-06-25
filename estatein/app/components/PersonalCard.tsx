@@ -97,10 +97,15 @@ export default function PersonalCard({
       </div>
 
       {/* 4. Кнопка */}
-      <button className='mt-auto w-full p-2 pl-6 flex justify-between items-center bg-grey-10 border border-grey-15 rounded-full hover:border-purple-60 hover:shadow-purple-60 hover:bg-grey-15 hover:shadow-[0_0_4px] duration-300 ease-out'>
-        <p>Поздороваться 👋</p>
-        <div className="p-3.5 bg-purple-60 rounded-full">
-            <Image src="/svg/send.svg" alt="send" width={20} height={20} />
+      <button className='mt-auto w-full p-2 pl-5 sm:pl-6 flex justify-between items-center bg-grey-10 border border-grey-15 rounded-full hover:border-purple-60 hover:bg-grey-15 transition-all duration-300 ease-out'>
+        {/* Добавили truncate и ограничили отступ справа, чтобы текст не давил на кнопку */}
+        <p className="text-white text-sm lg:text-[15px] font-medium whitespace-nowrap truncate pr-3">
+          Поздороваться 👋
+        </p>
+        
+        {/* Задали жесткие размеры (w-11 h-11), выровняли по центру и добавили shrink-0 */}
+        <div className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center bg-purple-60 rounded-full shrink-0">
+            <Image src="/svg/send.svg" alt="send" width={18} height={18} />
         </div>
       </button>
 

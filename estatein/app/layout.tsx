@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { CurrencyProvider } from "./components/CurrencyContext";
+import ScollToTop from "./components/ScrollToTop";
 
 // const urbanist = Urbanist({
 //   variable: "--font-urbanist",
@@ -29,6 +30,7 @@ export default function RootLayout({
         <CurrencyProvider>
           <Header/>
           {children}
+          <ScollToTop/>
           <Footer/>
         </CurrencyProvider>
         </body>

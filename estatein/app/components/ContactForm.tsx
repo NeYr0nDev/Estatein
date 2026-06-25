@@ -212,7 +212,7 @@ export default function ContactForm() {
         className="relative z-10 w-full p-5 lg:p-10 rounded-[15px] bg-grey-08"
         onSubmit={(e) => e.preventDefault()}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {/* --- 1 РЯД --- */}
           <div className="flex flex-col col-span-1">
             <label className={labelClasses}>Имя</label>
@@ -268,6 +268,7 @@ export default function ContactForm() {
             "Предпочитаемое местоположение",
             "Выберите место",
             ["Москва", "Санкт-Петербург", "Казань", "Сочи"],
+            "truncate",
           )}
           {renderCustomSelect(
             "propertyType",
@@ -294,11 +295,11 @@ export default function ContactForm() {
             "Бюджет",
             "Выберите бюджет",
             ["До 5 млн ₽", "5 - 10 млн ₽", "10 - 20 млн ₽", "От 20 млн ₽"],
-            "col-span-1 lg:col-span-2",
+            "col-span-1 md:col-span-2",
           )}
 
-          {/* Способ связи */}
-          <div className="flex flex-col col-span-1 lg:col-span-2">
+         {/* Способ связи */}
+          <div className="flex flex-col col-span-1 md:col-span-2">
             <label className={labelClasses}>Предпочтительный способ связи</label>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div
@@ -383,7 +384,7 @@ export default function ContactForm() {
           </div>
 
           {/* --- 4 РЯД (Текстовое поле) --- */}
-          <div className="flex flex-col col-span-1 lg:col-span-4">
+          <div className="flex flex-col col-span-1 md:col-span-2 xl:col-span-4">
             <label className={labelClasses}>Сообщение</label>
             <textarea
               name="message"

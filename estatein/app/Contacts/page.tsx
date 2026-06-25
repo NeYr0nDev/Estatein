@@ -197,25 +197,31 @@ export default function Contacts() {
 
           </div>
           
-          <div className="flex flex-col md:flex-row items-center w-full gap-5">
-            <div className="flex flex-col gap-2 flex-1">
+          <div className="flex flex-col md:flex-row items-center w-full gap-8 lg:gap-12 mt-5 lg:mt-8">
+            
+            {/* Левая часть с текстом (Занимает половину места на ПК) */}
+            <div className="flex flex-col gap-2 w-full md:w-1/2 flex-1">
               <Image src="/svg/stars.svg" alt="stars" width={55} height={24} className="mb-1.5" />
-              <h1 className="font-semibold text-[1.75rem] md:text-[2.375rem] lg:text-5xl text-white">Исследуйте мир Estatein</h1>
+              <h1 className="font-semibold text-[1.75rem] md:text-[2.375rem] lg:text-5xl text-white leading-tight">
+                Исследуйте мир Estatein
+              </h1>
               <p className="font-medium text-sm md:text-base lg:text-lg text-grey-60">
                 Окунитесь в мир Estatein, где профессионализм сочетается с теплотой, а опыт — со страстью. Наша галерея позволяет заглянуть в наши рабочие помещения и познакомиться с нашей командой поближе.
               </p>
             </div>
             
-            {/* ИСПРАВЛЕНО: Контейнер-маска со вторым способом адаптации */}
-            <div className="relative w-full md:max-w-[309px] lg:max-w-[509px] xl:max-w-[709px] aspect-[309/135] mt-5 md:mt-0 md:ml-5 flex-shrink-0">
+            {/* Правая часть с картинкой (Занимает вторую половину) */}
+            {/* Убрали жесткие пиксели и flex-shrink-0. Теперь это просто гибкие 50% ширины */}
+            <div className="relative w-full md:w-1/2 aspect-[16/9] lg:aspect-[309/135]">
               <Image 
                 unoptimized 
                 src="/img/galleryB.png" 
                 alt="gallery B" 
                 fill 
-                className="object-cover rounded-lg" 
+                className="object-cover rounded-lg shadow-lg" 
               />
             </div>
+
           </div>
         </section>
       </div>

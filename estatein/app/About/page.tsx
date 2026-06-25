@@ -69,7 +69,7 @@ export default function About() {
   };
 
   return (
-    <div className="w-full flex flex-col flex-1 items-center gap-16 xl:gap-[7.5rem] py-10 px-4 md:px-[10.125rem] bg-grey-08 font-sans overflow-hidden">
+    <div className="w-full flex flex-col flex-1 items-center gap-16 xl:gap-[7.5rem] py-10 px-4 md:px-10 lg:px-20 2xl:px-[10.125rem] bg-grey-08 font-sans overflow-hidden">
       
       {/* 1. ГЛАВНЫЙ ЭКРАН (Наше путешествие) */}
       <main id="journey" className="w-full flex flex-col gap-10 xl:gap-24">
@@ -96,29 +96,44 @@ export default function About() {
               </div>
             </div>
 
-            {/* СТАТИСТИКА С БЕГУЩИМИ ЦИФРАМИ */}
-            <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full mt-2">
-              <motion.div whileHover={{ scale: 1.05, y: -5 }} className="group min-w-[10.6875rem] flex flex-col items-center lg:items-start justify-center py-4 px-auto md:pl-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300">
-                <span className="text-2xl lg:text-[2.5rem] font-bold text-white group-hover:text-purple-60 transition-colors">
+            {/* ===== ОБНОВЛЕННЫЙ БЛОК СО СТАТИСТИКОЙ ===== */}
+            <motion.div variants={fadeInUp} className="grid grid-cols-2 xl:grid-cols-3 gap-3 md:gap-4 w-full mt-4">
+              
+              {/* Карточка 1: 200+ */}
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -5 }} 
+                className="group flex flex-col items-center justify-center p-3 sm:p-4 md:py-4 md:px-6 bg-grey-10 border border-grey-15 rounded-xl gap-1 text-center md:text-start cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300"
+              >
+                <span className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white whitespace-nowrap group-hover:text-purple-60 transition-colors duration-300">
                   <AnimatedNumber value={200} suffix="+" />
                 </span>
-                <span className="text-sm lg:text-lg text-grey-60 text-center md:text-start">Довольных клиентов</span>
+                <span className="text-xs sm:text-sm lg:text-lg text-grey-60 leading-tight">Довольных клиентов</span>
               </motion.div>
-              
-              <motion.div whileHover={{ scale: 1.05, y: -5 }} className="group min-w-[10.6875rem] flex flex-col items-center lg:items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300">
-                <span className="text-2xl lg:text-[2.5rem] font-bold text-white group-hover:text-purple-60 transition-colors">
+
+              {/* Карточка 2: 10k+ */}
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="group flex flex-col items-center justify-center p-3 sm:p-4 md:py-4 md:px-6 bg-grey-10 border border-grey-15 rounded-xl gap-1 text-center md:text-start cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300"
+              >
+                <span className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white whitespace-nowrap group-hover:text-purple-60 transition-colors duration-300">
                   <AnimatedNumber value={10} suffix="k+" />
                 </span>
-                <span className="text-sm lg:text-lg text-grey-60">Недвижимостей</span>
+                <span className="text-xs sm:text-sm lg:text-lg text-grey-60 leading-tight hyphens-auto">Недвижимостей</span>
               </motion.div>
-              
-              <motion.div whileHover={{ scale: 1.05, y: -5 }} className="group col-span-2 md:col-span-1 flex flex-col items-center lg:items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300">
-                <span className="text-2xl lg:text-[2.5rem] font-bold text-white group-hover:text-purple-60 transition-colors">
+
+              {/* Карточка 3: 16+ */}
+              <motion.div 
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="group col-span-2 xl:col-span-1 flex flex-col items-center justify-center p-3 sm:p-4 md:py-4 md:px-6 bg-grey-10 border border-grey-15 rounded-xl gap-1 text-center md:text-start cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300"
+            >
+                <span className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white whitespace-nowrap group-hover:text-purple-60 transition-colors duration-300">
                   <AnimatedNumber value={16} suffix="+" />
                 </span>
-                <span className="text-sm lg:text-lg text-grey-60">Лет опыта</span>
+                <span className="text-xs sm:text-sm lg:text-lg text-grey-60 leading-tight">Лет опыта</span>
               </motion.div>
+
             </motion.div>
+            {/* ===== КОНЕЦ БЛОКА СО СТАТИСТИКОЙ ===== */}
           </motion.div>
 
           {/* ПРАВАЯ КОЛОНКА (Картинка) */}
@@ -126,10 +141,17 @@ export default function About() {
             variants={fadeInRight}
             initial="hidden"
             animate="visible"
-            className="w-full lg:w-1/2 relative flex justify-center order-first lg:order-last h-full lg:px-0"
+            className="w-full lg:w-1/2 relative flex justify-center order-first lg:order-last h-full lg:pl-8 xl:pl-0"
           >
-            <div className="w-full rounded-xl overflow-hidden">
-              <Image src="/img/houseonhand.png" alt="House" width={755} height={546} className="w-[22.375rem] lg:w-[47.1875rem] h-auto object-cover border border-grey-15 rounded-xl" />
+            <div className="w-full max-w-[22.375rem] lg:max-w-full rounded-xl overflow-hidden flex justify-center">
+              <Image 
+                src="/img/houseonhand.png" 
+                alt="House" 
+                width={755} 
+                height={546} 
+                // Убрали жесткие пиксели, поставили w-full
+                className="w-full h-auto object-cover border border-grey-15 rounded-xl" 
+              />
             </div>
           </motion.div>
         </div>
@@ -172,17 +194,21 @@ export default function About() {
 
           {/* Внутренний контейнер, который перекрывает градиент и оставляет только рамку */}
           <div className="relative z-10 w-full h-full p-6 lg:p-2 bg-grey-08 rounded-[15px]">
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
-              {values.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className={`transition-all duration-300 lg:border-grey-15 ${index === 0 ? "lg:border-r lg:border-b" : ""} ${index === 1 ? "lg:border-b" : ""} ${index === 2 ? "lg:border-r" : ""}`}
-                >
-                  <ValueItem icon={item.icon} title={item.title} description={item.description} isLast={index === values.length - 1} />
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 xl:grid-cols-2 h-full">
+            {values.map((item, index) => (
+              <motion.div
+                key={index}
+                className={`transition-all duration-300 border-grey-15
+                  ${index === 0 ? "border-b xl:border-r" : ""} 
+                  ${index === 1 ? "border-b" : ""} 
+                  ${index === 2 ? "border-b xl:border-b-0 xl:border-r" : ""} 
+                `}
+              >
+                <ValueItem icon={item.icon} title={item.title} description={item.description} isLast={index === values.length - 1} />
+              </motion.div>
+            ))}
           </div>
+        </div>
         </motion.div>
         {/* --- АНИМИРОВАННАЯ РАМКА ЗАКАНЧИВАЕТСЯ --- */}
         

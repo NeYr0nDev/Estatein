@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'; // Добавили useEffect для счетчика
 import Image from "next/image";
+import Link from "next/link";
 import { SwiperSlide } from 'swiper/react'; 
 // Добавили хуки animate, useMotionValue, useTransform для бегущих чисел
 import { motion, animate, useMotionValue, useTransform, Variants } from "framer-motion";
@@ -79,45 +80,45 @@ export default function Home() {
                     <button className="w-full sm:w-auto px-6 py-3.5 bg-grey-08 border border-grey-15 text-white text-sm rounded-lg hover:bg-grey-10 transition-colors">
                       Узнать больше
                     </button>
-                    <button className="w-full sm:w-auto px-6 py-3.5 bg-purple-60 hover:bg-purple-65 transition-colors text-white text-sm rounded-lg">
+                    <Link href="/Properties" className="w-full sm:w-auto px-6 py-3.5 bg-purple-60 hover:bg-purple-65 transition-colors text-white text-sm rounded-lg">
                       Смотреть недвижимость
-                    </button>
+                    </Link>
                   </motion.div>
 
                   {/* ===== ОБНОВЛЕННЫЙ БЛОК СО СТАТИСТИКОЙ ===== */}
-                  <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full mt-2">
+                  <motion.div variants={fadeInUp} className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 w-full mt-4">
                     
                     {/* Карточка 1: 200+ */}
                     <motion.div 
-                      whileHover={{ scale: 1.05, y: -5 }} // Легкое увеличение и прыжок вверх при наведении
-                      className="group flex flex-col md:items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 items-center text-center md:text-start cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-colors duration-300"
+                      whileHover={{ scale: 1.05, y: -5 }} 
+                      className="group flex flex-col items-center md:items-start justify-center p-3 sm:p-4 md:py-4 md:px-6 bg-grey-10 border border-grey-15 rounded-xl gap-1 text-center md:text-start cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300"
                     >
-                      <span className="text-2xl lg:text-[2.5rem] font-bold text-white group-hover:text-purple-60 transition-colors duration-300">
+                      <span className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white whitespace-nowrap group-hover:text-purple-60 transition-colors duration-300">
                         <AnimatedNumber value={200} suffix="+" />
                       </span>
-                      <span className="text-sm lg:text-lg text-grey-60">Довольных клиентов</span>
+                      <span className="text-xs sm:text-sm lg:text-lg text-grey-60 leading-tight">Довольных клиентов</span>
                     </motion.div>
 
                     {/* Карточка 2: 10k+ */}
                     <motion.div 
                       whileHover={{ scale: 1.05, y: -5 }}
-                      className="group flex flex-col md:items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 items-center cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-colors duration-300"
+                      className="group flex flex-col items-center md:items-start justify-center p-3 sm:p-4 md:py-4 md:px-6 bg-grey-10 border border-grey-15 rounded-xl gap-1 text-center md:text-start cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300"
                     >
-                      <span className="text-2xl lg:text-[2.5rem] font-bold text-white group-hover:text-purple-60 transition-colors duration-300">
+                      <span className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white whitespace-nowrap group-hover:text-purple-60 transition-colors duration-300">
                         <AnimatedNumber value={10} suffix="k+" />
                       </span>
-                      <span className="text-sm lg:text-lg text-grey-60">Недвижимостей</span>
+                      <span className="text-xs sm:text-sm lg:text-lg text-grey-60 leading-tight hyphens-auto">Недвижимостей</span>
                     </motion.div>
 
                     {/* Карточка 3: 16+ */}
                     <motion.div 
                       whileHover={{ scale: 1.05, y: -5 }}
-                      className="group col-span-2 md:col-span-1 flex flex-col md:items-start justify-center py-4 px-6 bg-grey-10 border border-grey-15 rounded-xl gap-0.5 items-center cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-colors duration-300"
+                      className="group col-span-2 md:col-span-1 flex flex-col items-center md:items-start justify-center p-3 sm:p-4 md:py-4 md:px-6 bg-grey-10 border border-grey-15 rounded-xl gap-1 text-center md:text-start cursor-pointer hover:border-purple-60 hover:shadow-[0_8px_20px_rgba(112,59,247,0.15)] transition-all duration-300"
                     >
-                      <span className="text-2xl lg:text-[2.5rem] font-bold text-white group-hover:text-purple-60 transition-colors duration-300">
+                      <span className="text-2xl sm:text-3xl lg:text-[2.5rem] font-bold text-white whitespace-nowrap group-hover:text-purple-60 transition-colors duration-300">
                         <AnimatedNumber value={16} suffix="+" />
                       </span>
-                      <span className="text-sm lg:text-lg text-grey-60">Лет опыта</span>
+                      <span className="text-xs sm:text-sm lg:text-lg text-grey-60 leading-tight">Лет опыта</span>
                     </motion.div>
 
                   </motion.div>
